@@ -57,9 +57,14 @@
                 let loader = new THREE.GLTFLoader();
                 loader.load('3dStuff/Fito3d.gltf', gltf => {
 
-                    fitos = gltf.scene.children[0];
-                    //fitos.scale.set(0.5,0.5,0.5);
+                    var fitos = gltf.scene.children[0];
+                    //fitos.scale.set(0.5,0.5,0.5)
+
+                    // Reference for rotation
+                    model = gltf.scene;
                     scene.add(gltf.scene);
+                    
+                    // Pass the object reference
                     animate();
 
                 });
@@ -68,6 +73,9 @@
 
             function animate () {
                 
+                // Set the object rotation
+                model.rotation.y += 0.007;
+
                 renderer.render(scene, camera);
                 requestAnimationFrame(animate);
 
