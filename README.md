@@ -1,7 +1,11 @@
-# About
+# Portfolio
 
-This git project contains a web that is ment to be a personal portfolio.
+Proyecto para el portfoio
 
-# Dependencies
+# Web url 
 
+You can access to the web in the next url:
 
+```
+https://mimorep.github.io/Portfolio/ 
+```

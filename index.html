@@ -1,13 +1,254 @@
-<!DOCTYPE>
+<!--
+                    Main page for the porfolio web
+                        by miguelmoreno
+-->
+<!DOCTYPE html>
+<html lang="en">
 
-<html>
+    <head>     
 
-    <head>
-        <title>HOLA MUNDO</title>
+        <!-- Required metas -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <!-- Bootstrap inizialitation -->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+        <link rel="stylesheet" href="css/styles.css" />
+        <link rel="icon" href="images/Logo.ico" />
+
+        <title>TFG Miguel Moreno</title>
+
     </head>
 
     <body>
-        <h1>HOLA MUNDO</h1>
+
+        <script src="js/three.js"></script>
+        <script src="js/GLTFLoader.js"></script>
+        <script src="js/OrbitControls.js"></script>
+        <script>
+            let scene, camera, renderer;
+
+             // Get the canvas size
+            var fitosObject = document.getElementById("fitos"),
+                CANVAS_HEIGHT = 500;   
+
+            function init() {               
+
+                // Set the scene
+                scene = new THREE.Scene();
+                scene.background = new THREE.Color(0x30303030); // Background color, now black
+
+                // Enable de camera control
+                camera = new THREE.PerspectiveCamera(10, window.innerWidth/CANVAS_HEIGHT, 0.01, 2000);
+                camera.rotation.y = 45/180*Math.PI;
+                
+                // Camera position
+                camera.position.x = 4;
+                camera.position.y = 0;
+                camera.position.z = 1;
+
+                renderer = new THREE.WebGLRenderer({antialias: true});
+                renderer.setSize(window.innerWidth, CANVAS_HEIGHT);
+                document.body.appendChild(renderer.domElement);
+
+                controls = new THREE.OrbitControls(camera, renderer.domElement);
+                controls.update();
+
+                // Set the lights        
+                light = new THREE.PointLight(0xd9d9d9, 2);
+                light.position.set(0, 300, 500);
+                scene.add(light);
+
+                light2 = new THREE.PointLight(0xd9d9d9, 2);
+                light2.position.set(500,100,0);
+                scene.add(light2);
+
+                // Back ligth
+                light3 = new THREE.PointLight(0xd9d9d9, 2);
+                light3.position.set(0, 100, -500);
+                scene.add(light3);
+
+                light4 = new THREE.PointLight(0xd9d9d9, 2);
+                light4.position.set(-500, 300, 500);
+                scene.add(light4);
+                
+                // Add the element to the web
+                document.body.appendChild(renderer.domElement);
+
+                // Init the 3d loader and load the fitos file
+                let loader = new THREE.GLTFLoader();
+                loader.load('3dStuff/Fito3d.gltf', gltf => {
+
+                    var fitos = gltf.scene.children[0];
+                    //fitos.scale.set(0.5,0.5,0.5)
+
+                    // Reference for rotation
+                    model = gltf.scene;
+                    scene.add(gltf.scene);
+                    
+                    // Pass the object reference
+                    animate();
+
+                });
+
+            }
+
+            function animate () {
+                
+                // Set the object rotation
+                model.rotation.y += -0.007;
+
+                renderer.render(scene, camera);
+                requestAnimationFrame(animate);
+
+            }
+
+            // Init the 3d content
+            init();
+
+        </script>
+
+        <!-- Javascript declaration for Bootstrap-->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <div class="container-fluid">
+              <a class="navbar-brand" href="#">
+                <img src="images/Logo.png" alt="" width="30" height="24">
+              </a>
+              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+              <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                <div class="navbar-nav">
+                  <a class="nav-link active" href="#summary">Resumen</a>
+                  <a class="nav-link" href="#front">FrontEnd</a>
+                  <a class="nav-link" href="#back">BackEnd</a>
+                  <a class="nav-link" href="#contactMe">Contacto</a>
+                </div>
+              </div>
+            </div>
+        </nav>
+
+        <div id="summary" class="container p-3">
+            <h2>Resumen</h2>
+            
+            <p>El uso de productos fitosanitarios para los cultivos es de vital importancia si queremos asegurar la integridad de los mismos. Siendo España uno de los países con uno de los sectores agroalimentarios más potente del mundo, no es una sorpresa saber que también es uno de los que más invierte en fitosanitarios. <br> <br>
+
+                La integración con SAP Business One, asegura a las PYMEs una ventaja competitiva en el sector. Cada día más empresas dedicadas a la venta de fitosanitarios invierten en el desarrollo de Terminales Punto de Venta (TPV) para agilizar estos procesos de venta. <br> <br>
+                
+                Este Trabajo Fin de Grado pretende crear un TPV que se integre completamente con SAP Business One, probablemente el mejor ERP para las PYMEs. Este proyecto se desarrolla con metodologías AGILE y siempre orientado al cliente, ya que dispone de uno real desde el inicio. <br> <br>
+                
+                Como resultado final se obtiene un producto totalmente solvente y seguro ante una diversidad de ataques estudiados durante la carrera. Este producto actualmente se encuentra desplegado y a falta de últimos retoques para ser lanzado a productivo en el cliente que lo solicitó.
+            </p>
+            </span>
+            <p>Algunas de las tecnologías utilizadas para este proyecto son: </p>
+            </span>
+            <div class="accordion accordion-flush" id="accordionFlushExample">
+                <div class="accordion-item">
+                  <h2 class="accordion-header" id="flush-headingOne">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
+                      SAP ui5
+                    </button>
+                  </h2>
+                  <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
+                    <div class="accordion-body">Placeholder content for this accordion, which is intended to demonstrate the <code>.accordion-flush</code> class. This is the first item's accordion body.</div>
+                  </div>
+                </div>
+                <div class="accordion-item">
+                  <h2 class="accordion-header" id="flush-headingTwo">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseTwo" aria-expanded="false" aria-controls="flush-collapseTwo">
+                      Nodejs
+                    </button>
+                  </h2>
+                  <div id="flush-collapseTwo" class="accordion-collapse collapse" aria-labelledby="flush-headingTwo" data-bs-parent="#accordionFlushExample">
+                    <div class="accordion-body">Placeholder content for this accordion, which is intended to demonstrate the <code>.accordion-flush</code> class. This is the second item's accordion body. Let's imagine this being filled with some actual content.</div>
+                  </div>
+                </div>
+                <div class="accordion-item">
+                  <h2 class="accordion-header" id="flush-headingThree">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseThree" aria-expanded="false" aria-controls="flush-collapseThree">
+                      SAP Business One
+                    </button>
+                  </h2>
+                  <div id="flush-collapseThree" class="accordion-collapse collapse" aria-labelledby="flush-headingThree" data-bs-parent="#accordionFlushExample">
+                    <div class="accordion-body">Placeholder content for this accordion, which is intended to demonstrate the <code>.accordion-flush</code> class. This is the third item's accordion body. Nothing more exciting happening here in terms of content, but just filling up the space to make it look, at least at first glance, a bit more representative of how this would look in a real-world application.</div>
+                  </div>
+                </div>
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="flush-headingFour">
+                      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseFour" aria-expanded="false" aria-controls="flush-collapseFour">
+                        WireFrame
+                      </button>
+                    </h2>
+                    <div id="flush-collapseFour" class="accordion-collapse collapse" aria-labelledby="flush-headingFpur" data-bs-parent="#accordionFlushExample">
+                      <div class="accordion-body">Placeholder content for this accordion, which is intended to demonstrate the <code>.accordion-flush</code> class. This is the second item's accordion body. Let's imagine this being filled with some actual content.</div>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="flush-headingFive">
+                      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseFive" aria-expanded="false" aria-controls="flush-collapseFive">
+                        Let's encrypt
+                      </button>
+                    </h2>
+                    <div id="flush-collapseFive" class="accordion-collapse collapse" aria-labelledby="flush-headingFive" data-bs-parent="#accordionFlushExample">
+                      <div class="accordion-body">Placeholder content for this accordion, which is intended to demonstrate the <code>.accordion-flush</code> class. This is the second item's accordion body. Let's imagine this being filled with some actual content.</div>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="flush-headingSix">
+                      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseSix" aria-expanded="false" aria-controls="flush-collapseSix">
+                        Nginx
+                      </button>
+                    </h2>
+                    <div id="flush-collapseSix" class="accordion-collapse collapse" aria-labelledby="flush-headingSix" data-bs-parent="#accordionFlushExample">
+                      <div class="accordion-body">Placeholder content for this accordion, which is intended to demonstrate the <code>.accordion-flush</code> class. This is the second item's accordion body. Let's imagine this being filled with some actual content.</div>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="flush-headingSeve">
+                      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseSeven" aria-expanded="false" aria-controls="flush-collapseSeven">
+                        Certbot
+                      </button>
+                    </h2>
+                    <div id="flush-collapseSeven" class="accordion-collapse collapse" aria-labelledby="flush-headingSeven" data-bs-parent="#accordionFlushExample">
+                      <div class="accordion-body">Placeholder content for this accordion, which is intended to demonstrate the <code>.accordion-flush</code> class. This is the second item's accordion body. Let's imagine this being filled with some actual content.</div>
+                    </div>
+                </div>
+              </div>
+            </span>
+
+        </div>
+
+        <div id="front" class="container p-3">
+            <h2>FrontEnd</h2>
+
+            <p></p>
+        </div>
+
+        <div id="back" class="container p-3">
+            <h2>BackEnd</h2>
+
+            <p></p>
+        </div>
+
+        <!-- Main container -->
+        <div id="contactMe" class="container p-3">
+            <h2>Contacto</h2>
+            <p>Si necesitas más información no dudes en contactarme</p>
+
+            <!-- Contact me secction -->
+            <div class="mb-3">
+                <label for="exampleFormControlInput1" class="form-label">Email address</label>
+                <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
+            </div>
+            <div class="mb-3">
+                <label for="exampleFormControlTextarea1" class="form-label">Message Content</label>
+                <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+            </div>
+
+        </div>        
+
     </body>
 
 </html>
