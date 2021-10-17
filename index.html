@@ -44,8 +44,8 @@
                 scene.background = new THREE.Color(0x30303030); // Background color, now black
 
                 // Enable de camera control
-                camera = new THREE.PerspectiveCamera(10, window.innerWidth/CANVAS_HEIGHT, 0.01, 2000);
-                camera.rotation.y = 45/180*Math.PI;
+                camera = new THREE.PerspectiveCamera(3.5, window.innerWidth/CANVAS_HEIGHT, 0.01, 2000);
+                //camera.rotation.y = 120/180*Math.PI;
                 
                 // Camera position
                 camera.position.x = 4;
@@ -82,7 +82,7 @@
 
                 // Init the 3d loader and load the fitos file
                 let loader = new THREE.GLTFLoader();
-                loader.load('3dStuff/Fito3d.gltf', gltf => {
+                loader.load('3dStuff/Fito3dCentrado.gltf', gltf => {
 
                     var fitos = gltf.scene.children[0];
                     //fitos.scale.set(0.5,0.5,0.5)
@@ -100,7 +100,7 @@
 
             function animate () {
                 
-                // Set the object rotation
+                // Set the object rotation                
                 model.rotation.y += -0.007;
 
                 renderer.render(scene, camera);
@@ -394,7 +394,13 @@
         <div id="back" class="container p-3">
             <h2>Backend</h2>
 
-            <p></p>
+            <p>El en Backend es donde reside toda la lógica de la apliación.</p>
+
+            <h3>Arquitectura</h3>
+            <p>Para la arquitectura del Backend, se ha realizado una adaptación del famoso modelo MVC (utilizado para el Frontend). Gracias a esta adaptación se consigue integrar el MVC al Backend y por tanto garantizar tanto la modularidad como la robusted del proyecto.</p>
+            <img src="" class="img-fluid mx-auto d-block" alt="Estructura del Backend">
+            <p class="text-center small">Estructura del Backend</p>
+
         </div>
 
         <div id="web" class="container p-3">
