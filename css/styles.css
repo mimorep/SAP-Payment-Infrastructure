@@ -3,3 +3,15 @@ body {
     font-family: Arial;
     background-color: #30303030
 }
+
+.go-up {
+   display: inline-block; 
+   padding: 10px;
+   font-size: 30px;
+   color: black;
+   cursor: pointer;
+   background-color: transparent;
+   position: fixed;
+   bottom: 20px;
+   right: 20px;
+}
