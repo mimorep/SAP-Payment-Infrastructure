@@ -35,7 +35,16 @@
 
              // Get the canvas size
             var fitosObject = document.getElementById("fitos"),
-                CANVAS_HEIGHT = 500;   
+                CANVAS_HEIGHT = 500;
+                
+            var cameraZoom = 3.3; // Mobile by default
+
+            console.log(navigator);
+
+            if (navigator.appVersion.includes('iPhone') || navigator.appVersion.includes('Android'))
+              cameraZoom = 4.3;
+
+            console.log(cameraZoom);
 
             function init() {               
 
@@ -44,7 +53,7 @@
                 scene.background = new THREE.Color(0x1E1E1E); // Background color, now black
 
                 // Enable de camera control
-                camera = new THREE.PerspectiveCamera(3.5, window.innerWidth/CANVAS_HEIGHT, 0.01, 2000);
+                camera = new THREE.PerspectiveCamera(cameraZoom, window.innerWidth/CANVAS_HEIGHT, 0.01, 2000);
                 //camera.rotation.y = 120/180*Math.PI;
                 
                 // Camera position
