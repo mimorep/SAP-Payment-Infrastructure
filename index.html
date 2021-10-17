@@ -16,7 +16,7 @@
         <link rel="stylesheet" href="css/styles.css" />
         <link rel="icon" href="images/Logo.ico" />
 
-        <title>TFG Miguel Moreno</title>
+        <title>TPV seguro para la venta de fitosanitarios</title>
 
     </head>
 
@@ -122,8 +122,10 @@
               <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                 <div class="navbar-nav">
                   <a class="nav-link active" href="#summary">Resumen</a>
+                  <a class="nav-link active" href="#security">Seguridad</a>
                   <a class="nav-link" href="#front">FrontEnd</a>
                   <a class="nav-link" href="#back">BackEnd</a>
+                  <a class="nav-link" href="#web">Web</a>
                   <a class="nav-link" href="#contactMe">Contacto</a>
                 </div>
               </div>
@@ -217,6 +219,92 @@
                 </div>
               </div>
             </span>
+        </div>
+
+        <div id="security" class="container p-3">
+          <h2>Medidas de Seguridad</h2>
+
+          <p>Un buen profesor de seguridad me dijo un día: “Existen dos tiempos de empresas, las que han sido hackeadas y las que todavía no lo saben”, por esto mismo en este proyecto se exploran formas de hacer la herramienta lo más segura posible. <br> <br>
+
+            Cada día más el sector de las PYMEs se encuentra amenazado por los ataques cibernéticos (casi un 70% (maestro 2018)). Desde el secuestro de datos hasta la venta de los mismos a la competencia. Esto puede resultar tanto en pérdidas enormes para las mismas como incluso su propio cierre. <br> <br>
+
+            Debido a que está aplicación está orientada a las PYMEs y los recientes ataques que se han detectado en otros clientes de la empresa en la que se realiza este TFG, propuse añadir una serie de medidas de seguridad a este proyecto, las cuales fueron aceptadas por la empresa y paso a detallar a continuación. <br> <br>
+
+            Esas medida de seguridad son: <br> <br>
+          </p>
+
+          <div class="accordion accordion-flush" id="accordionFlushExample">
+            <div class="accordion-item">
+              <h2 class="accordion-header" id="flush-headingSecurity1">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseSecurity1" aria-expanded="false" aria-controls="flush-collapseSecurity1">
+                  Cifrado TLS y de cookies
+                </button>
+              </h2>
+              <div id="flush-collapseSecurity1" class="accordion-collapse collapse" aria-labelledby="flush-headingSecurity1" data-bs-parent="#accordionFlushExample">
+                <div class="accordion-body">
+                  Al ser requisito alojar el TPV en internet, es necesario que la comunicación entre el Frontend y el Backend sea segura y privada. Para garantizar esto se emplea la herramienta Certbot, con el fin de generar certificados válidos y auto-renovables. <br> <br>
+
+                  Si bien que las comunicaciones sean seguras es vital, también los es que la información relaccionada con credenciales (en este caso cookies), también se cifre en la transmisión. Gracias a tener estos certificados, podemos hacerlo sin problemas.
+                </div>
+              </div>
+            </div>
+            <div class="accordion-item">
+              <h2 class="accordion-header" id="flush-headingSecurity2">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseSecurity2" aria-expanded="false" aria-controls="flush-collapseSecurity2">
+                  Hashing de contraseñas
+                </button>
+              </h2>
+              <div id="flush-collapseSecurity2" class="accordion-collapse collapse" aria-labelledby="flush-headingSecurity2" data-bs-parent="#accordionFlushExample">
+                <div class="accordion-body">
+                  Para paliar el posible robo de contraseñas en el Backend se dispone de una función encargada de calcular el hash de la contraseña y añadirle un “salt” (esto se hace con el fin de evitar el “crackeo” de las contraseñas mediante “rainbow tables”), gracias a esto cada vez que se hace login se comparan los hashes de las contraseñas, así la contraseña nunca quedará en la BD (recordemos de que la transmisión de la contraseña si que se hace en texto plano desde el Frontend a el Backend, pero por un canal totalmente cifrado.
+                </div>
+              </div>
+            </div>
+            <div class="accordion-item">
+              <h2 class="accordion-header" id="flush-headingSecurity3">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseSecurity3" aria-expanded="false" aria-controls="flush-collapseSecurity3">
+                  Logs de acceso personalizados
+                </button>
+              </h2>
+              <div id="flush-collapseSecurity3" class="accordion-collapse collapse" aria-labelledby="flush-headingSecurity3" data-bs-parent="#accordionFlushExample">
+                <div class="accordion-body">
+                  Con el fin de controlar en todo momento a que zonas se está accediendo del Backend, se implementan unos logs personalizados. Estó ayudará tanto a detectar posibles zonas vulneradas como a facilitar el mantenimiento de zonas.
+                </div>
+              </div>
+            </div>
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="flush-headingSecurity4">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseSecurity4" aria-expanded="false" aria-controls="flush-collapseSecurity4">
+                    Geolocalización
+                  </button>
+                </h2>
+                <div id="flush-collapseSecurity4" class="accordion-collapse collapse" aria-labelledby="flush-headingSecurity4" data-bs-parent="#accordionFlushExample">
+                  <div class="accordion-body">
+                    Para conocer en todo momento quien accede a nuestro servicio y combiandolo con la medida anterior saber a que zonas. Se implementa un IDS. <br> <br>
+
+                    En este caso se optó por emplear un api de rastreo Ip conocida como <a href="https://ipdata.co/" class="stretched-link">ipData</a>.
+                  </div>
+                </div>
+            </div>
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="flush-headingSecurity5">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseSecurity5" aria-expanded="false" aria-controls="flush-collapseSecurity5">
+                    Black & White list
+                  </button>
+                </h2>
+                <div id="flush-collapseSecurity5" class="accordion-collapse collapse" aria-labelledby="flush-headingSecurity5" data-bs-parent="#accordionFlushExample">
+                  <div class="accordion-body">
+                    Ahora que sabemos quien accede y a que parte del sistema, podemos llevarlo al siguiente nivel. <br> <br>
+
+                    En el caso de la Blacklist se implementa para bloquear el acceso a Ips que consideremos malignas (en el caso de IpData, nos da información sobre Ips potencialmente dañinas que son inmediatamente bloqueadas). <br> <br>
+
+                    La Whitelist sin embargo se emplea para acceder a zonas restringidas de la aplicación, como pudieran ser los endpoints encargados de añadir Ips a la Blacklist (Si dejasemos esto abierto, cualquiera podría bloquear cualquier Ip).
+                  </div>
+                </div>
+            </div>
+          </div>
+
+          <p> <br> Si quieres saber más sobre las medidas de seguridad, te recomiendo que leas la memoria del proyecto </p>
 
         </div>
 
@@ -230,6 +318,12 @@
             <h2>BackEnd</h2>
 
             <p></p>
+        </div>
+
+        <div id="web" class="container p-3">
+            <h2>Web</h2>
+
+            <p>Para acceder a la web desarrollada en este TFG accede desde: </p>
         </div>
 
         <!-- Main container -->
