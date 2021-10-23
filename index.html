@@ -39,12 +39,8 @@
                 
             var cameraZoom = 3.3; // Mobile by default
 
-            console.log(navigator);
-
             if (navigator.appVersion.includes('iPhone') || navigator.appVersion.includes('Android'))
               cameraZoom = 4.3;
-
-            console.log(cameraZoom);
 
             function init() {               
 
@@ -142,6 +138,7 @@
                   <a class="nav-link active" href="#security">Seguridad</a>
                   <a class="nav-link active" href="#front">Frontend</a>
                   <a class="nav-link active" href="#back">Backend</a>
+                  <a class="nav-link active" href="#arqSystem">Arquitectura de servidores</a>
                   <a class="nav-link active" href="#web">Web</a>
                   <a class="nav-link active" href="#contactMe">Contacto</a>
                 </div>
@@ -369,7 +366,7 @@
             </div>
           </div>
 
-          <p> <br> Si quieres saber más sobre las medidas de seguridad, te recomiendo que leas la memoria del proyecto </p>
+          <p> <br> Si quieres saber más sobre las medidas de seguridad, te recomiendo que leas la memoria del proyecto. </p>
 
         </div>
 
@@ -407,15 +404,27 @@
 
             <h3>Arquitectura</h3>
             <p>Para la arquitectura del Backend, se ha realizado una adaptación del famoso modelo MVC (utilizado para el Frontend). Gracias a esta adaptación se consigue integrar el MVC al Backend y por tanto garantizar tanto la modularidad como la robusted del proyecto.</p>
-            <img src="" class="img-fluid mx-auto d-block" alt="Estructura del Backend">
+            <img src="images/MVCBack.png" class="img-fluid mx-auto d-block" alt="Estructura del Backend">
             <p class="text-center small">Estructura del Backend</p>
+            <p> <br> Como sucede en el Frontend el desarrollo se realiza también siguiendo los principios S.O.L.I.D</p>
+            <img src="images/SOLID.png" class="img-fluid mx-auto d-block" alt="Principios SOLID">
+            <p class="text-center small"><a href="https://www.programaenlinea.net/solid-codigo-limpio/">Principios S.O.L.I.D</a></p>
 
+        </div>
+
+        <div id="arqSystem" class="container p-3">
+          <h2>Arquitectura del sistema</h2>
+
+          <p>El diseño de la arquitectura de servidoresm, es el siguiente. Este está inspirado en una DMZ (Zona desmilitarizada) y su principal premisa es garantizar la funcionalidad de otras partes del sistema si alguna otra se ve comprometida, ya sea por una vulneravilidad o por un fallo en el sistema. </p>
+          <img src="images/ServerEstructure.png" class="img-fluid mx-auto d-block" alt="arquitectura de servidores">
+          <p class="text-center small">Arquitectura de servidores</p>
         </div>
 
         <div id="web" class="container p-3">
             <h2>Web</h2>
 
             <p>Para acceder a la web desarrollada en este TFG accede desde: </p>
+            <p class="text-center"> <br> <a href="https://apps.novotic.es/"> https://apps.novotic.es </a> </p>
         </div>
 
         <!-- Main container -->
@@ -424,17 +433,20 @@
             <p>Si necesitas más información no dudes en contactarme</p>
 
             <!-- Contact me secction -->
-            <div class="mb-3">
-                <label for="exampleFormControlInput1" class="form-label">Email address</label>
-                <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
-            </div>
-            <div class="mb-3">
-                <label for="exampleFormControlTextarea1" class="form-label">Message Content</label>
-                <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
-            </div>
-
-        </div>        
-
+            <form action="https://formspree.io/f/mgerbnqz" method="POST">
+              <div class="mb-3">
+                  <label for="exampleFormControlInput1" class="form-label">Email address</label>
+                  <input type="email" class="form-control" name="_replyto" id="exampleFormControlInput1" placeholder="name@example.com">
+              </div>
+              <div class="mb-3">
+                  <label for="exampleFormControlTextarea1" class="form-label">Message Content</label>
+                  <textarea class="form-control" name="message" id="exampleFormControlTextarea1" rows="3"></textarea>
+              </div>
+              <div>
+                <button class="btn btn-light type="submit">Enviar</button>
+              </div>
+            </form>
+        </div>     
     </body>
 
 </html>
