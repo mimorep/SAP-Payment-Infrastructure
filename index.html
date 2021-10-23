@@ -171,7 +171,7 @@
                   </h2>
                   <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
                     <div class="accordion-body">
-                        Es el Framework de código abierto (basado en Javascript, jQuerty y LESS) que proporciona SAP para uss aplicaciones. Al este TPV utilzar el famoso ERP SAP Business One, parece la decisión más acertada trabajar directamente con su propio Framework.
+                        Es el Framework de código abierto (basado en Javascript, jQuerty y LESS) que proporciona SAP para sus aplicaciones. Al utilzar este TPV el famoso ERP SAP Business One, parece la decisión más acertada trabajar directamente con su propio Framework.
                     </div>
                   </div>
                 </div>
@@ -211,7 +211,7 @@
                       <div class="accordion-body">
                         WireFrame es el software empleado para realizar el prototipado de las aplicaciones. <br> <br>
                         
-                        Con esto se consigue la aprovación del cliente o la sugerencia de cambios/mejoras, antes de comenzar el desarrollo, ganando así tiempo.
+                        Con esto se consigue la aprobación del cliente o la sugerencia de cambios/mejoras, antes de comenzar el desarrollo, ganando así tiempo.
                       </div>
                     </div>
                 </div>
@@ -225,7 +225,7 @@
                       <div class="accordion-body">
                         Let's encrypt es la CA (Certification Authority) empleada para generar los certificados de la aplicación. <br> <br>
 
-                        Es totalmente gratuita y fué creada con la premisa de velar por un futuro con webs seguras.
+                        Es totalmente gratuita y fue creada con la premisa de velar por un futuro con webs seguras.
                       </div>
                     </div>
                 </div>
@@ -251,7 +251,7 @@
                     </h2>
                     <div id="flush-collapseSeven" class="accordion-collapse collapse" aria-labelledby="flush-headingSeven" data-bs-parent="#accordionFlushExample">
                       <div class="accordion-body">
-                        Es el cliente software de Let's encrypt, que permite generar certificados de forma más y se integra completamente con Ngix.
+                        Es el cliente software de Let's encrypt, que permite generar certificados de forma más sencilla y se integra completamente con Ngix.
                       </div>
                     </div>
                 </div>
@@ -318,7 +318,7 @@
               </h2>
               <div id="flush-collapseSecurity2" class="accordion-collapse collapse" aria-labelledby="flush-headingSecurity2" data-bs-parent="#accordionFlushExample">
                 <div class="accordion-body">
-                  Para paliar el posible robo de contraseñas en el Backend se dispone de una función encargada de calcular el hash de la contraseña y añadirle un “salt” (esto se hace con el fin de evitar el “crackeo” de las contraseñas mediante “rainbow tables”), gracias a esto cada vez que se hace login se comparan los hashes de las contraseñas, así la contraseña nunca quedará en la BD (recordemos de que la transmisión de la contraseña si que se hace en texto plano desde el Frontend a el Backend, pero por un canal totalmente cifrado.
+                  Para paliar el posible robo de contraseñas en el Backend se dispone de una función encargada de calcular el hash de la contraseña y añadirle un “salt” (esto se hace con el fin de evitar el “crackeo” de las contraseñas mediante “rainbow tables”), gracias a esto cada vez que se hace login se comparan los hashes de las contraseñas, así la contraseña nunca quedará en la BD (recordemos de que la transmisión de la contraseña sí que se hace en texto plano desde el Frontend a el Backend, pero por un canal totalmente cifrado.
                 </div>
               </div>
             </div>
@@ -342,9 +342,9 @@
                 </h2>
                 <div id="flush-collapseSecurity4" class="accordion-collapse collapse" aria-labelledby="flush-headingSecurity4" data-bs-parent="#accordionFlushExample">
                   <div class="accordion-body">
-                    Para conocer en todo momento quien accede a nuestro servicio y combiandolo con la medida anterior saber a que zonas. Se implementa un IDS. <br> <br>
+                    Para conocer en todo momento quien accede a nuestro servicio y combinándolo con la medida anterior saber a que zonas. Se implementa un IDS. <br> <br>
 
-                    En este caso se optó por emplear un api de rastreo Ip conocida como <a href="https://ipdata.co/" class="stretched-link">ipData</a>.
+                    En este caso se optó por emplear una api de rastreo Ip conocida como <a href="https://ipdata.co/" class="stretched-link">ipData</a>.
                   </div>
                 </div>
             </div>
@@ -360,7 +360,7 @@
 
                     En el caso de la Blacklist se implementa para bloquear el acceso a Ips que consideremos malignas (en el caso de IpData, nos da información sobre Ips potencialmente dañinas que son inmediatamente bloqueadas). <br> <br>
 
-                    La Whitelist sin embargo se emplea para acceder a zonas restringidas de la aplicación, como pudieran ser los endpoints encargados de añadir Ips a la Blacklist (Si dejasemos esto abierto, cualquiera podría bloquear cualquier Ip).
+                    La Whitelist sin embargo se emplea para acceder a zonas restringidas de la aplicación, como pudieran ser los endpoints encargados de añadir Ips a la Blacklist (Si dejásemos esto abierto, cualquiera podría bloquear cualquier Ip).
                   </div>
                 </div>
             </div>
@@ -377,7 +377,7 @@
               
               Otra parte vital de este desarrollo es garantizar la accesibilidad del mismo, por ello se sigue el patron de desarrollo de <a href="https://www.sap.com/spain/products/fiori.html">SAP Fiori</a> garantizando así un diseño accesible. <br> <br>
 
-              Tabién con el fin de combatir con problemas realaccionados con la visión, se implementan una serie de temas que además de permitir la personalización del sistema permite poner la aplición en modo daltónico y alto contraste. <br>
+              También con el fin de combatir con problemas relacionados con la visión, se implementan una serie de temas que además de permitir la personalización del sistema permite poner la aplicación en modo daltónico y alto contraste. <br>
             </p>
 
             <img src="images/TemasTFG.png" class="img-fluid mx-auto d-block" alt="Temas soportados por la aplicación">
@@ -387,7 +387,7 @@
             <p> La arquitectura seguida para este proyecto es una ampliación del famoso MVC. <br> </p>
             <img src="images/MVCFront.png" class="img-fluid mx-auto d-block" alt="Arquitectura Frontend">
             <p class="text-center small">Modelo MVC extendido</p>
-            <p> <br> Algo importante es que todo el desarrollo se hace siempre pensando y compliendo los principios S.O.L.I.D, con el fin de lograr un resultado más sólido.</p>
+            <p> <br> Algo importante es que todo el desarrollo se hace siempre pensando y cumpliendo los principios S.O.L.I.D, con el fin de lograr un resultado más sólido.</p>
             <img src="images/SOLID.png" class="img-fluid mx-auto d-block" alt="Principios SOLID">
             <p class="text-center small"><a href="https://www.programaenlinea.net/solid-codigo-limpio/">Principios S.O.L.I.D</a></p>
 
@@ -400,10 +400,10 @@
         <div id="back" class="container p-3">
             <h2>Backend</h2>
 
-            <p>El en Backend es donde reside toda la lógica de la apliación.</p>
+            <p>El en Backend es donde reside toda la lógica de la aplicación.</p>
 
             <h3>Arquitectura</h3>
-            <p>Para la arquitectura del Backend, se ha realizado una adaptación del famoso modelo MVC (utilizado para el Frontend). Gracias a esta adaptación se consigue integrar el MVC al Backend y por tanto garantizar tanto la modularidad como la robusted del proyecto.</p>
+            <p>Para la arquitectura del Backend, se ha realizado una adaptación del famoso modelo MVC (utilizado para el Frontend). Gracias a esta adaptación se consigue integrar el MVC al Backend y por tanto garantizar tanto la modularidad como la robustez del proyecto.</p>
             <img src="images/MVCBack.png" class="img-fluid mx-auto d-block" alt="Estructura del Backend">
             <p class="text-center small">Estructura del Backend</p>
             <p> <br> Como sucede en el Frontend el desarrollo se realiza también siguiendo los principios S.O.L.I.D</p>
@@ -415,7 +415,7 @@
         <div id="arqSystem" class="container p-3">
           <h2>Arquitectura del sistema</h2>
 
-          <p>El diseño de la arquitectura de servidoresm, es el siguiente. Este está inspirado en una DMZ (Zona desmilitarizada) y su principal premisa es garantizar la funcionalidad de otras partes del sistema si alguna otra se ve comprometida, ya sea por una vulneravilidad o por un fallo en el sistema. </p>
+          <p>El diseño de la arquitectura de servidores es el siguiente. Está inspirado en una DMZ (Zona desmilitarizada) y su principal premisa es garantizar la funcionalidad de otras partes del sistema si alguna otra se ve comprometida, ya sea por una vulnerabilidad o por un fallo en el sistema. </p>
           <img src="images/ServerEstructure.png" class="img-fluid mx-auto d-block" alt="arquitectura de servidores">
           <p class="text-center small">Arquitectura de servidores</p>
         </div>
